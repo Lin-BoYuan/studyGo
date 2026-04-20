@@ -16,6 +16,7 @@ func main() {
 		PrintF会根据格式化参数生成字符串并输出
 		%d 表示整型数字，%s 表示字符串
 	*/
+	fmt.Println("=====字符串格式化====")
 	var stockcode = 123
 	var endDate = "2020-12-31"
 	var url = "Code=%d&endDate=%s"
@@ -30,11 +31,19 @@ func main() {
 		var 变 量名 = 值（根据值自行判断类型）
 		变量名 := 值
 	*/
+	fmt.Println("=====变量声明=====")
 	var s1 string = "this is a string"
 	var n1, n2 int = 1, 2
 	var n3 = 3.1415
 	n4 := 12345
 	fmt.Println(s1, n1, n2, n3, n4)
+
+	var (
+		username = "jack"
+		age      = 20
+		sex      = "male"
+	)
+	fmt.Println(username, age, sex)
 
 	/*
 		未初始的变量:
@@ -42,6 +51,7 @@ func main() {
 		数值类型为0
 		字符串为空字符串
 	*/
+	fmt.Println("=====未初始化变量=====")
 	var uninitV1 bool
 	var uninitV2 int
 	var uninitV3 string
@@ -50,6 +60,7 @@ func main() {
 	/*
 		常量用const标识
 	*/
+	fmt.Println("=====const=====")
 	const NAME = "LBY"
 	fmt.Println(NAME)
 	// 常量内函数必须是内置函数
