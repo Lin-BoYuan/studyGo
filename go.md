@@ -71,33 +71,86 @@
 
 # 数据类型
 
-```
-uint8：0-255（2^8-1) == byte
-uint16：0-65535
-uint32
-uint64
-int8：-128-127
-int16
-int32 == rune
-int64
-int 会在32位或64平台下分别取对应位数的长度
+## 基本数据类型
 
-float32
-float64
-complex64：32位实数和虚数
-complex128
++ 整型
 
-bool
+  + ```
+    uint8：0-255（2^8-1) == byte
+    uint16：0-65535
+    uint32
+    uint64
+    int8：-128-127
+    int16
+    int32 == rune
+    int64
+    int 会在32位或64平台下分别取对应位数的长度
+    ```
 
-string
-```
++ 浮点型
+
+  + ```
+    float32
+    float64
+    complex64：32位实数和虚数
+    complex128
+    ```
+
++ 布尔型
+
+  + `bool`
+
++ 字符串
+
+  + `string`
+
+## 复合数据类型
+
++ 数组
++ 切片
++ 结构体
++ 函数
++ map
++ 通道channel
++ 接口
 
 ```go
 func main() {
     a := 1
     fmt.Printf("a的类型为：%T\n". a)	// a的类型为int
+    unsafe.Sizeof(a)	// 返回a的内存占用字节数
 }
 ```
+
+## 强转类型
+
+可能出现精度丢失
+
+```go
+var a1 int8 = 8
+var a2 int16 = 10
+fmt.Printf(int(16)a1 + a2)
+```
+
+## 数字字面量语法
+
+%v：原样输出
+
+%d：十进制输出
+
+%b：二进制输出
+
+%o：八进制输出
+
+%x：十六进制输出
+
+```go
+v := 0b1001
+v2 := 0o377
+v3 := 0xac
+```
+
+
 
 
 
