@@ -37,6 +37,7 @@ func main() {
 	var n3 = 3.1415
 	n4 := 12345
 	fmt.Println(s1, n1, n2, n3, n4)
+	fmt.Println("s1占用", unsafe.Sizeof(s1), "字节")
 
 	var (
 		username = "jack"
