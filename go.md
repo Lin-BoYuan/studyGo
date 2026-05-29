@@ -96,13 +96,109 @@
     complex128
     ```
 
+  + ```go
+    fmt.Println("%v, %f, %.2f")	// 原样输出，保留小数点后六位，保留小数点后两位
+    
+    var v = 3.14e2	// 表示3.14 * 10^2
+    var v = 3.14e-2	// 表示3.14 * 10^(-2)
+    ```
+
+  + 精度丢失解决：github.com/shopspring/decimal包
+
+    + ```go
+      num1 := 3.1
+      num2 := 4.2
+      d1 := decimal.newFromFloat(num1)
+      d2 := decimal.newFromFloat(num2)
+      d3 := d1.Add(d2)
+      d4 := d1.Sub(d2)	
+      // Mul、Div
+      ```
+
 + 布尔型
 
   + `bool`
+  + 默认值为false
+  + 不允许整形强转为布尔型
+  + 布尔型无法参与数值运算，也无法与其他类型进行转换
 
 + 字符串
 
   + `string`
+  
+  + 默认值为空
+  
+  + 转义符
+  
+    + `\r`：回车符（返回行首）
+    + `\n`：换行符（跳到下一行的同列位置）
+    + `\t`：制表符
+    + `\'`：单引号
+    + `\"`：双引号
+    + `\\`：反斜杠
+  
+  + 多行字符串
+  
+    + 用双引号只能定义单行字符串，多行要用反引号
+  
+    + ```go
+      str := `line1
+      line2
+      line3`
+      ```
+  
+  + 常用操作
+  
+    + 求长度：len(str)，一个汉字三个字节，一个英文字母一个字节
+    
+    + 拼接字符串：+或`str := fmt.Sprintf("%V %v", str1, str2)`
+    
+    + 分割字符换：字符串拆分为切片
+    
+      + ```go
+        var str = "123-456-789"
+        arr := strings.Split(str, "-")
+        ```
+    
+    + 切片转换为字符串
+    
+      + ```go
+        var str = "123-456-789"
+        arr := strings.Split(str, "-")
+        str2 := strings.Join(arr, "*")
+        ```
+    
+    + 判断一个字符串是否包含另一个字符串
+    
+      + ```go
+        str1 := "this is str"
+        str2 := "this"
+        flag := strings.Contains(str) 
+        ```
+    
+    + 前缀/后缀判断
+    
+      + ```go
+        str1 := "this is str"
+        str2 := "this"
+        flag1 := strings.HasPrefix(str1, str2)
+        flag2 := strings.HasSuffix(str1, str2)
+        ```
+    
+    + 找子字符串出现的位置，查不到返回-1，找到返回下标位置
+    
+      + ```go
+        str1 := "this is str"
+        str2 := "is"
+        num1 := strings.Index(str1, str2)
+        num2 := strings.LastIndex(str1, str2)
+        ```
+    
+      + 
+    
+    
+    
+    
 
 ## 复合数据类型
 
@@ -143,6 +239,10 @@ fmt.Printf(int(16)a1 + a2)
 %o：八进制输出
 
 %x：十六进制输出
+
+%f：输出浮点类型值（默认保留小数点后六位）
+
+%T：输出变量类型
 
 ```go
 v := 0b1001
